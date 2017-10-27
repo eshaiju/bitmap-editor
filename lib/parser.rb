@@ -1,11 +1,13 @@
 require './lib/commands/show'
+require './lib/commands/create'
 
 class Parser
   attr_reader :bitmap
 
   def self.commands
     {
-      "S" => Commands::Show
+      "S" => Commands::Show,
+      "I" => Commands::Create
     }
   end
 
