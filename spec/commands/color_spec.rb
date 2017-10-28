@@ -36,7 +36,7 @@ describe Commands::Color do
           .to raise_error(StandardError, error_message)
       end
 
-      it 'raises error if color is bot provided in argument' do
+      it 'raises error if color is not provided in argument' do
         args = %w[2 1]
         error_message = 'Color not provided'
         expect { described_class.execute(args, bitmap) }

@@ -41,5 +41,11 @@ describe Parser do
       expect(Commands::VerticalLine).to receive(:execute)
       subject.parse(command_string, bitmap)
     end
+
+    it 'excecute horizontal_line commad' do
+      command_string = 'H'
+      expect(Commands::HorizontalLine).to receive(:execute)
+      subject.parse(command_string, bitmap)
+    end
   end
 end
