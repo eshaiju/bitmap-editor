@@ -1,4 +1,6 @@
 AllCops:
+  Exclude:
+    - 'README.md'
   TargetRubyVersion: 2.4
 Style/Encoding:
   EnforcedStyle: always
