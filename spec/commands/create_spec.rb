@@ -6,7 +6,7 @@ describe Commands::Create do
   let(:bitmap) { nil }
   let(:args) { %w[2 2] }
 
-  describe '#parse' do
+  describe '#execute' do
     it 'outputs invalied command message' do
       args = []
       expect { described_class.execute(args, bitmap) }

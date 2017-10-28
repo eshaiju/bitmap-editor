@@ -5,8 +5,17 @@ require 'parser'
 describe Commands::Color do
   let(:bitmap) { Bitmap.new(2, 2) }
   let(:args) { %w[2 2 C] }
+  let(:no_bitmap_message) { "No bitmap found\n" }
 
-  describe '#parse' do
+  describe '#execute' do
+    context 'bitmap empty' do
+      it 'outputs invalied command message' do
+        bitmap = nil
+        expect { described_class.execute(args, bitmap) }
+          .to output(no_bitmap_message).to_stdout
+      end
+    end
+
     context 'invalied coordinates' do
       it 'raises error if width is less than 1' do
         args = %w[0 2 C]
