@@ -17,6 +17,10 @@ class Bitmap
     Array.new(height.to_i) { Array.new(width.to_i, 'O') }
   end
 
+  def clear
+    matrix.map { |row| row.fill('O') }
+  end
+
   def set_matrix_colour(x, y, colour)
     x = x.to_i
     y = y.to_i

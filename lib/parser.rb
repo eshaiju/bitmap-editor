@@ -3,6 +3,7 @@
 require './lib/commands/show'
 require './lib/commands/create'
 require './lib/commands/color'
+require './lib/commands/clear'
 
 class Parser
   attr_reader :bitmap
@@ -11,7 +12,8 @@ class Parser
     {
       'S' => Commands::Show,
       'I' => Commands::Create,
-      'L' => Commands::Color
+      'L' => Commands::Color,
+      'C' => Commands::Clear
     }
   end
 
