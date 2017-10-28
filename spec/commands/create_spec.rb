@@ -1,13 +1,16 @@
+# encoding: utf-8
+
 require 'parser'
 
 describe Commands::Create do
-  let(:bitmap) { nil}
-  let(:args) {[2,2]}
+  let(:bitmap) { nil }
+  let(:args) { %w[2 2] }
 
-  describe "#parse" do
+  describe '#parse' do
     it 'outputs invalied command message' do
       args = []
-      expect { described_class.execute(args, bitmap) }.to raise_error(StandardError, 'Bitmap coordinates are out of limits')
+      expect { described_class.execute(args, bitmap) }
+        .to raise_error(StandardError, 'Bitmap coordinates are out of limits')
     end
 
     it 'return bitmap' do

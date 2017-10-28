@@ -1,0 +1,35 @@
+AllCops:
+  TargetRubyVersion: 2.4
+Style/Encoding:
+  EnforcedStyle: always
+  Enabled: true
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 100
+
+Metrics/MethodLength:
+  CountComments: false  # count full line comments?
+  Max: 10
+
+Metrics/ModuleLength:
+  CountComments: false  # count full line comments?
+  Max: 100
+
+Metrics/ParameterLists:
+  Max: 5
+  CountKeywordArgs: true
+
+Metrics/PerceivedComplexity:
+  Max: 7
