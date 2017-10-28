@@ -20,7 +20,7 @@ describe Commands::Clear do
     end
 
     it 'return bitmap with colored matrix' do
-      bitmap.set_matrix_colour(1, 1, 'C')
+      bitmap.set_matrix_color(1, 1, 'C')
       expect(described_class.execute(args, bitmap).matrix)
         .to eq [%w[O O], %w[O O]]
     end
