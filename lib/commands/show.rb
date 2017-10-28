@@ -10,7 +10,7 @@ module Commands
       end
 
       def print(bitmap)
-        puts bitmap.map(&:join).join("\n")
+        puts bitmap.matrix.map(&:join).join("\n")
       end
     end
   end

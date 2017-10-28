@@ -11,8 +11,8 @@ describe Commands::Show do
     end
 
     it 'prints bitmap' do
-      bitmap = [['O','O'],['O','Z']]
-      expect { described_class.execute(args, bitmap) } .to output("OO\nOZ\n").to_stdout
+      bitmap = Bitmap.new(2,2)
+      expect { described_class.execute(args, bitmap) } .to output("OO\nOO\n").to_stdout
     end
   end
 end
