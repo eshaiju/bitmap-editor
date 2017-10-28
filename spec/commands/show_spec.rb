@@ -5,12 +5,15 @@ require 'parser'
 describe Commands::Show do
   let(:bitmap) { nil }
   let(:args) { nil }
+  let(:no_bitmap_message) { "No bitmap found\n" }
 
-  describe '#parse' do
-    it 'outputs invalied command message' do
-      message = "No bitmap has been created\n"
-      expect { described_class.execute(args, bitmap) }
-        .to output(message).to_stdout
+  describe '#execute' do
+    context 'bitmap empty' do
+      it 'outputs invalied command message' do
+        bitmap = nil
+        expect { described_class.execute(args, bitmap) }
+          .to output(no_bitmap_message).to_stdout
+      end
     end
 
     it 'prints bitmap' do
