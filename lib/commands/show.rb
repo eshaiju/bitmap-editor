@@ -1,15 +1,16 @@
 # encoding: utf-8
 
+require './lib/bitmap.rb'
+require './lib/error_notification.rb'
+
 module Commands
   class Show
+    extend ErrorNotification
+
     class << self
       def execute(_args, bitmap)
-        bitmap.nil? ? empty_message : print(bitmap)
+        bitmap.nil? ? bitmap_not_found : print(bitmap)
         bitmap
-      end
-
-      def empty_message
-        puts 'No bitmap has been created'
       end
 
       def print(bitmap)

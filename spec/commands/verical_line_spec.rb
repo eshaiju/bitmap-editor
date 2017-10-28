@@ -7,8 +7,17 @@ describe Commands::VerticalLine do
   let(:args) { %w[2 1 2 C] }
   let(:out_of_limits_message) { 'Bitmap coordinates are out of limits' }
   let(:no_color_message) { 'Color not provided' }
+  let(:no_bitmap_message) { "No bitmap found\n" }
 
-  describe '#parse' do
+  describe '#execute' do
+    context 'bitmap empty' do
+      it 'outputs invalied command message' do
+        bitmap = nil
+        expect { described_class.execute(args, bitmap) }
+          .to output(no_bitmap_message).to_stdout
+      end
+    end
+
     context 'invalied coordinates' do
       it 'raises error if x is less than 1' do
         args = %w[0 1 2 C]
@@ -60,6 +69,12 @@ describe Commands::VerticalLine do
       end
 
       it 'return bitmap with colored matrix' do
+        expect(described_class.execute(args, bitmap).matrix)
+          .to eq [%w[O C], %w[O C]]
+      end
+
+      it 'return bitmap with colored matrix even y1 > y2' do
+        args = %w[2 2 1 C]
         expect(described_class.execute(args, bitmap).matrix)
           .to eq [%w[O C], %w[O C]]
       end
