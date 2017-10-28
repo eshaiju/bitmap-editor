@@ -3,11 +3,11 @@
 require './lib/bitmap.rb'
 
 module Commands
-  class Color
+  class VerticalLine
     class << self
       def execute(args, bitmap)
-        x, y, color = args
-        bitmap.set_matrix_color(x, y, color)
+        x, y1, y2, color = args
+        bitmap.set_vertical_line_color(x, y1, y2, color)
         bitmap
       end
     end
