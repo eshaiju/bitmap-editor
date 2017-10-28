@@ -50,7 +50,7 @@ describe Commands::Color do
           .to an_instance_of(Bitmap)
       end
 
-      it 'return bitmap with colord matrix' do
+      it 'return bitmap with colored matrix' do
         expect(described_class.execute(args, bitmap).matrix)
           .to eq [%w[O O], %w[O C]]
       end
