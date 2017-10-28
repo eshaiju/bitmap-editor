@@ -72,6 +72,12 @@ describe Commands::VerticalLine do
         expect(described_class.execute(args, bitmap).matrix)
           .to eq [%w[O C], %w[O C]]
       end
+
+      it 'return bitmap with colored matrix even y1 > y2' do
+        args = %w[2 2 1 C]
+        expect(described_class.execute(args, bitmap).matrix)
+          .to eq [%w[O C], %w[O C]]
+      end
     end
   end
 end
