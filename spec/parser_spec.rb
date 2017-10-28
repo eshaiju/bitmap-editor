@@ -14,8 +14,31 @@ describe Parser do
 
     it 'excecute show commad' do
       command_string = 'S'
-      bitmap = [%w[O O], %w[O Z]]
       expect(Commands::Show).to receive(:execute)
+      subject.parse(command_string, bitmap)
+    end
+
+    it 'excecute create commad' do
+      command_string = 'I'
+      expect(Commands::Create).to receive(:execute)
+      subject.parse(command_string, bitmap)
+    end
+
+    it 'excecute clear commad' do
+      command_string = 'C'
+      expect(Commands::Clear).to receive(:execute)
+      subject.parse(command_string, bitmap)
+    end
+
+    it 'excecute color commad' do
+      command_string = 'L'
+      expect(Commands::Color).to receive(:execute)
+      subject.parse(command_string, bitmap)
+    end
+
+    it 'excecute vertical_line commad' do
+      command_string = 'V'
+      expect(Commands::VerticalLine).to receive(:execute)
       subject.parse(command_string, bitmap)
     end
   end
