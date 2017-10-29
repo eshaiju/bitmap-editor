@@ -23,12 +23,12 @@ H X1 X2 Y C - Draw a horizontal segment of colour C in row Y between columns X1 
 S - Show the contents of the current image
 
 #### Example
-To run the application you must supply a command file like so bin/bitmap_editor examples/show.txt
+To run the application you must supply a command file like so <strong>bin/bitmap_editor examples/show.txt</strong>
 
 #### Input File:
 I 5 6  
 L 1 3 A  
-V 2 3 6 W
+V 2 3 6 W  
 H 3 5 2 Z  
 S  
 
@@ -38,3 +38,7 @@ OOZZZ
 AWOOO  
 OWOOO  
 OWOOO  
+
+#### Run test
+
+bundle exec rspec spec
