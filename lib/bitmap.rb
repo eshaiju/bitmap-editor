@@ -47,7 +47,29 @@ class Bitmap
     matrix[y - 1].fill(colour, (x1 - 1)..(x2 - 1))
   end
 
+  def flood_fill(x, y, colour)
+    x = x.to_i
+    y = y.to_i
+    wrong_coordinates_message(x, y) if out_of_limit?(x, width) || out_of_limit?(y, height)
+    no_color_message if colour.nil?
+    target_color = matrix[y - 1][x - 1]
+    fill_color(x, y, target_color, colour)
+  end
+
   private
+
+  def fill_color(x, y, target_color, replacement_color)
+    return if fill_color_out_of_limit(x, y) || (matrix[y - 1][x - 1] != target_color)
+    matrix[y - 1][x - 1] = replacement_color
+    fill_color(x + 1, y, target_color, replacement_color)
+    fill_color(x - 1, y, target_color, replacement_color)
+    fill_color(x, y + 1, target_color, replacement_color)
+    fill_color(x, y - 1, target_color, replacement_color)
+  end
+
+  def fill_color_out_of_limit(x, y)
+    out_of_limit?(x, width) || out_of_limit?(y, height)
+  end
 
   def horizontal_line_out_of_limit?(x1, x2, y)
     out_of_limit?(x1, width) || out_of_limit?(x2, width) || out_of_limit?(y, height)

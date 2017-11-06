@@ -6,6 +6,7 @@ require './lib/commands/color'
 require './lib/commands/clear'
 require './lib/commands/vertical_line'
 require './lib/commands/horizontal_line'
+require './lib/commands/flood_fill'
 
 class Parser
   attr_reader :bitmap
@@ -17,7 +18,8 @@ class Parser
       'L' => Commands::Color,
       'C' => Commands::Clear,
       'V' => Commands::VerticalLine,
-      'H' => Commands::HorizontalLine
+      'H' => Commands::HorizontalLine,
+      'F' => Commands::FloodFill
     }
   end
 
