@@ -59,6 +59,7 @@ class Bitmap
   private
 
   def fill_color(x, y, target_color, replacement_color)
+    return if target_color == replacement_color
     return if fill_color_out_of_limit(x, y) || (matrix[y - 1][x - 1] != target_color)
     matrix[y - 1][x - 1] = replacement_color
     fill_color(x + 1, y, target_color, replacement_color)
