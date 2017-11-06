@@ -16,10 +16,10 @@ describe BitmapEditor do
         expect(output).to eq(<<~EOS
           OOOOO
           OOZZZ
-          AWOOO
-          OWOOO
-          OWOOO
-          OWOOO
+          AXOOO
+          OXOOO
+          OXOOO
+          OXOOO
         EOS
                             )
       end
