@@ -51,7 +51,7 @@ class Bitmap
     y = y.to_i
     verify_inputs(x, y, colour)
     target_color = matrix[y - 1][x - 1]
-    fill_color(x, y, target_color, colour)
+    fill_neighbours(x, y, target_color, colour)
   end
 
   private
@@ -68,7 +68,7 @@ class Bitmap
     fill_nighboures(x, y, target_color, replacement_color)
   end
 
-  def fill_nighboures(x, y, target_color, replacement_color)
+  def fill_neighbours(x, y, target_color, replacement_color)
     fill_color(x + 1, y, target_color, replacement_color)
     fill_color(x - 1, y, target_color, replacement_color)
     fill_color(x, y + 1, target_color, replacement_color)
